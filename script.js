@@ -99,7 +99,7 @@ function romanToInteger(roman) {
 
 // Solo si existe `document` (o sea, en navegador), conectamos los event listeners:
 if (typeof document !== 'undefined') {
-  // Convertimos la función a expresión para evitar "función dentro de bloque"
+  // Convertimos la lógica del clic en una expresión de función (no declaración)
   const handleConversion = () => {
     const mode = document.getElementById('conversionMode').value;
     const inputValue = document.getElementById('inputValue').value.trim();
@@ -113,8 +113,11 @@ if (typeof document !== 'undefined') {
     try {
       if (mode === 'intToRoman') {
         const num = parseInt(inputValue, 10);
+        if (isNaN(num)) {
+          throw new Error('Please enter a valid integer number.');
+        }
         const roman = integerToRoman(num);
-        resultDiv.textContent = `Roman: ${roman}`;
+        resultDiv.textContent = `Roman Numeral: ${roman}`;
       } else if (mode === 'romanToInt') {
         const intVal = romanToInteger(inputValue);
         resultDiv.textContent = `Integer: ${intVal}`;
@@ -126,14 +129,14 @@ if (typeof document !== 'undefined') {
     }
   };
 
-  // Esperamos a que el DOM esté completamente cargado y luego asociamos el listener
+  // Asociamos el listener después de que cargue el DOM
   document.addEventListener('DOMContentLoaded', () => {
     const button = document.getElementById('convertButton');
     button.addEventListener('click', handleConversion);
   });
 }
 
-// Export para Node.js (CommonJS), de modo que Mocha pueda importar estas funciones:
+// Export para Node.js (CommonJS) para que Mocha pueda usar estas funciones:
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { integerToRoman, romanToInteger };
 }
