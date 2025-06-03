@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Number Converter</title>
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+    rel="stylesheet"
+  />
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Number Converter</h1>
+    <!-- Dropdown for selecting conversion mode -->
+    <label for="conversionMode">Mode:</label>
+    <select id="conversionMode">
+      <option value="intToRoman">Integer → Roman</option>
+      <option value="romanToInt">Roman → Integer</option>
+    </select>
+
+    <!-- Input field for the value -->
+    <input
+      type="text"
+      id="inputValue"
+      placeholder="Enter number or Roman numeral"
+    />
+
+    <!-- Button to trigger conversion -->
+    <button id="convertButton">Convert</button>
+
+    <!-- Where we show the result or errors -->
+    <div class="result" id="result"></div>
+    <div class="error" id="error"></div>
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

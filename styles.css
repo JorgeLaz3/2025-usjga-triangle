@@ -1,0 +1,81 @@
+/* Reset default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Apply the Google Font globally and background gradient */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #74abe2, #5563de);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container styling */
+.container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+}
+
+/* Title styling */
+.container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+/* Label and select/input/button styling */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333333;
+}
+
+select,
+input[type='text'] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #5563de;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+button:hover {
+  background-color: #4653c8;
+}
+
+/* Styling for the result message */
+.result {
+  font-size: 1.25rem;
+  color: #333333;
+  margin-top: 20px;
+}
+
+/* Styling for error messages */
+.error {
+  color: #e74c3c;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
