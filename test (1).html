@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Number Converter Tests</title>
-  <!-- Mocha CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.css" />
+  <!-- Mocha CSS for browser -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.css"
+  />
 </head>
 <body>
-  <!-- Container where Mocha will display the test results -->
+  <!-- Mocha will render results here -->
   <div id="mocha"></div>
 
-  <!-- Load Mocha and Chai libraries -->
+  <!-- Mocha and Chai scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.7/chai.min.js"></script>
-  
-  <!-- Set up Mocha in BDD mode -->
   <script>
+    // Set up Mocha for BDD style
     mocha.setup('bdd');
   </script>
-  
-  <!-- Load your website library (conversion functions) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.7/chai.min.js"></script>
+
+  <!-- Load our script and tests -->
   <script src="script.js"></script>
-  
-  <!-- Load the test implementations -->
   <script src="tests.js"></script>
-  
+
   <!-- Run the tests -->
   <script>
     mocha.run();
