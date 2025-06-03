@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "A simple Roman numeral ↔ integer converter with automated tests and CI/CD.",
   "scripts": {
-    "test": "mocha",
-    "lint": "eslint ."
+  "test": "mocha tests.js",
+  "lint": "eslint ."
+}
   },
   "devDependencies": {
     "chai": "^4.3.7",
