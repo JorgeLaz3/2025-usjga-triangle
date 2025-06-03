@@ -88,7 +88,7 @@ function romanToInteger(roman) {
     }
   }
 
-  // After computing, convert back to Roman to verify correctness (to catch invalid patterns like "IM", "VX", etc.)
+  // After computing, convert back to Roman to verify correctness
   const reconversion = integerToRoman(total);
   if (reconversion !== s) {
     throw new Error('Input must be a valid Roman numeral.');
@@ -97,43 +97,46 @@ function romanToInteger(roman) {
   return total;
 }
 
-/**
- * Handles the button click: reads input, calls the appropriate converter,
- * and displays the result or any errors.
- */
-function handleConversion() {
-  const mode = document.getElementById('conversionMode').value;
-  const inputValue = document.getElementById('inputValue').value.trim();
-  const resultDiv = document.getElementById('result');
-  const errorDiv = document.getElementById('error');
+// Solo si existe `document` (o sea, en navegador), conectamos los event listeners:
+if (typeof document !== 'undefined') {
+  /**
+   * Maneja el clic del botón: lee el modo y valor de entrada,
+   * llama al conversor y muestra el resultado o error correspondiente.
+   */
+  function handleConversion() {
+    const mode = document.getElementById('conversionMode').value;
+    const inputValue = document.getElementById('inputValue').value.trim();
+    const resultDiv = document.getElementById('result');
+    const errorDiv = document.getElementById('error');
 
-  // Clear previous messages
-  resultDiv.textContent = '';
-  errorDiv.textContent = '';
+    // Limpiar mensajes anteriores
+    resultDiv.textContent = '';
+    errorDiv.textContent = '';
 
-  try {
-    if (mode === 'intToRoman') {
-      const num = parseInt(inputValue, 10);
-      const roman = integerToRoman(num);
-      resultDiv.textContent = `Roman: ${roman}`;
-    } else if (mode === 'romanToInt') {
-      const intVal = romanToInteger(inputValue);
-      resultDiv.textContent = `Integer: ${intVal}`;
-    } else {
-      throw new Error('Unknown conversion mode.');
+    try {
+      if (mode === 'intToRoman') {
+        const num = parseInt(inputValue, 10);
+        const roman = integerToRoman(num);
+        resultDiv.textContent = `Roman: ${roman}`;
+      } else if (mode === 'romanToInt') {
+        const intVal = romanToInteger(inputValue);
+        resultDiv.textContent = `Integer: ${intVal}`;
+      } else {
+        throw new Error('Unknown conversion mode.');
+      }
+    } catch (err) {
+      errorDiv.textContent = err.message;
     }
-  } catch (err) {
-    errorDiv.textContent = err.message;
   }
+
+  // Esperamos a que el DOM esté completamente cargado:
+  document.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('convertButton');
+    button.addEventListener('click', handleConversion);
+  });
 }
 
-// Attach listener once DOM is fully loaded
-document.addEventListener('DOMContentLoaded', () => {
-  const button = document.getElementById('convertButton');
-  button.addEventListener('click', handleConversion);
-});
-
-// Export for Node.js (CommonJS) so Mocha can import these functions:
+// Export para Node.js (CommonJS), de modo que Mocha pueda importar estas funciones:
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { integerToRoman, romanToInteger };
 }
