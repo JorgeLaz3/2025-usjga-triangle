@@ -99,11 +99,8 @@ function romanToInteger(roman) {
 
 // Solo si existe `document` (o sea, en navegador), conectamos los event listeners:
 if (typeof document !== 'undefined') {
-  /**
-   * Maneja el clic del botón: lee el modo y valor de entrada,
-   * llama al conversor y muestra el resultado o error correspondiente.
-   */
-  function handleConversion() {
+  // Convertimos la función a expresión para evitar "función dentro de bloque"
+  const handleConversion = () => {
     const mode = document.getElementById('conversionMode').value;
     const inputValue = document.getElementById('inputValue').value.trim();
     const resultDiv = document.getElementById('result');
@@ -127,9 +124,9 @@ if (typeof document !== 'undefined') {
     } catch (err) {
       errorDiv.textContent = err.message;
     }
-  }
+  };
 
-  // Esperamos a que el DOM esté completamente cargado:
+  // Esperamos a que el DOM esté completamente cargado y luego asociamos el listener
   document.addEventListener('DOMContentLoaded', () => {
     const button = document.getElementById('convertButton');
     button.addEventListener('click', handleConversion);
