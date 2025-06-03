@@ -5,67 +5,65 @@
   box-sizing: border-box;
 }
 
-/* Apply the Google Font globally */
+/* Apply the Google Font globally and background gradient */
 body {
   font-family: 'Roboto', sans-serif;
-  /* Use a pleasing gradient for the background */
-  background: linear-gradient(135deg, #74ABE2, #5563DE);
+  background: linear-gradient(135deg, #74abe2, #5563de);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-/* Container styling for the converter card */
+/* Container styling */
 .container {
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 40px 30px;
-  max-width: 400px;
-  width: 90%;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 350px;
   text-align: center;
 }
 
-/* Header styling */
+/* Title styling */
 .container h1 {
   font-size: 2rem;
-  color: #333333;
   margin-bottom: 20px;
+  color: #333333;
 }
 
-/* Styling for the form elements */
-.container select,
-.container input[type="text"],
-.container button {
+/* Label and select/input/button styling */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333333;
+}
+
+select,
+input[type='text'] {
   width: 100%;
-  padding: 12px 15px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
   font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
 }
 
-/* Focus state for select and input */
-.container select:focus,
-.container input[type="text"]:focus {
-  outline: none;
-  border-color: #5563DE;
-  box-shadow: 0 0 8px rgba(85, 99, 222, 0.4);
-}
-
-/* Button styling */
-.container button {
-  background: #5563DE;
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
   color: #ffffff;
+  background-color: #5563de;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 500;
 }
 
-.container button:hover {
-  background: #4652b8;
+button:hover {
+  background-color: #4653c8;
 }
 
 /* Styling for the result message */
@@ -77,8 +75,7 @@ body {
 
 /* Styling for error messages */
 .error {
-  color: #E74C3C;
+  color: #e74c3c;
   margin-top: 10px;
   font-size: 0.9rem;
 }
-
